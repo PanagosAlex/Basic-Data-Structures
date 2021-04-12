@@ -2,7 +2,9 @@
 #define UnorderedArray_h
 
 using namespace std;
-
+/*
+ * This class represents an Unordered Array.
+ */
 class UnorderedArray
 {
   private:
@@ -10,11 +12,18 @@ class UnorderedArray
     int length;
   public:
     //UnorderedArray();
+
     UnorderedArray(string a[],int len);
-    bool setSentence(string, int);
-    string getSentence(int);
-    bool findSentence(string, int&);
-    bool deleteSentence(string);
+    ~UnorderedArray();
+
+    bool setWord(string, int);
+    string getWord(int);
+    int getLength();
+
+    bool findWord(string, int&);
+    bool addWord(string);
+    bool deleteWord(string);
+    int numOfTimes(int );
 };
 
 #endif
