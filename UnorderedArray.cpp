@@ -4,13 +4,6 @@
 
 using namespace std;
 
-/*UnorderedArray::UnorderedArray()
-{
-  string a[1];
-  length =1;
-  data = a;
-}*/
-
 UnorderedArray::UnorderedArray(string *a,int len)
 {
   length = len;
