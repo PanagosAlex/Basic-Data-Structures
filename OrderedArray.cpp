@@ -22,6 +22,7 @@ bool OrderedArray:: findWord(string word, int& pos){
                 l = mid + 1;
             else
                 r = mid - 1;
+            pos=mid;
         }
         return false;
 }
