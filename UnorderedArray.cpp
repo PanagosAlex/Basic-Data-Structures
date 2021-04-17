@@ -8,7 +8,9 @@ UnorderedArray::UnorderedArray(string *a,int len)
 {
   length = len;
   data = new string[length];
-  data=a;
+  for (int i = 0; i < length; i++) {
+        data[i] = a[i];
+    }
 }
 UnorderedArray:: ~UnorderedArray(){
     delete[] data;

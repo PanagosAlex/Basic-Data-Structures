@@ -8,7 +8,6 @@
 class OrderedArray: public UnorderedArray{
 public:
     OrderedArray(string *,int);
-    ~OrderedArray();
 
     bool findWord(string, int&);
     bool addWord(string);
