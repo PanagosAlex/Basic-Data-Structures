@@ -46,6 +46,7 @@ bool UnorderedArray::findWord(string s,int& pos)
   }
   return false;
 }
+
 bool UnorderedArray::addWord(string s) {
     string *temp= new string[length+1];
     if(temp==nullptr)

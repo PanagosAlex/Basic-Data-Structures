@@ -22,9 +22,58 @@ bool OrderedArray:: findWord(string word, int &pos){
         }
         return false;
 }
-bool OrderedArray:: addWord(string word){
-}
-bool OrderedArray:: deleteWord(string word){
+
+bool OrderedArray:: addWord(string word)
+{
+  int pos=0;
+  bool test=findWord(word,pos);
+
+    if(UnorderedArray::addWord("zzzzz"))
+    {
+      for(int i=length-1;i>pos+1;i--)
+      {
+        data[i] = data[i-1];
+      }
+      data[pos] = word;
+      return true;
+    }
+  return false;
 }
 
+bool OrderedArray:: deleteWord(string word)
+{
+  int pos=0;
+  if(findWord(word,pos))
+  {
+    for(int i=pos; i<length; i++)
+    {
+      data[pos]=data[pos+1];
+    }
 
+    string *temp = new string[length-1];
+    if(temp==nullptr)
+        return false;
+    for(int i=0;i<length-1;i++){
+        temp[i]= data[i];
+    }
+    delete[] temp;
+    length--;
+    return true;
+  }
+  return false;
+
+}
+/*
+bool UnorderedArray::addWord(string s) {
+    string *temp= new string[length+1];
+    if(temp==nullptr)
+        return false;
+    for(int i=0;i<length;i++){
+        temp[i]= data[i];
+    }
+    delete[] data;
+    temp[length]=s;
+    data = temp;
+    length++;
+    return true;
+}*/
