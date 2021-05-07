@@ -1,7 +1,6 @@
 #ifndef UnorderedArray_h
 #define UnorderedArray_h
 
-
 using namespace std;
 /*
  * This class represents an Unordered Array.

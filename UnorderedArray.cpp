@@ -12,6 +12,7 @@ UnorderedArray::UnorderedArray(string *a,int len)
         data[i] = a[i];
     }
 }
+
 UnorderedArray:: ~UnorderedArray(){
     delete[] data;
 }
