@@ -18,9 +18,12 @@ class BinarySearchTree{
     BinarySearchTree(string);
     //setters getters
     void insertWord(string data);
+    bool deleteWord(string);
+    bool findWord(string,Node *&);
     void inOrder(Node*);
     void preOrder(Node*);
     void postOrder(Node*);
+    Node* getMinNode(Node*);
 };
 
 #endif

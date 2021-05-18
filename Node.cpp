@@ -47,3 +47,4 @@ Node* Node::getRightChild()
 {
   return rightchild;
 }
+

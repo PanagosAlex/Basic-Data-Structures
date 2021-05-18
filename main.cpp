@@ -21,6 +21,6 @@ int main() {/*
 
   BinarySearchTree test("test");
   test.insertWord("Eva");
-  
+  cout<<"test";
   return 0;
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "UnorderedArray.h"
 
 using namespace std;
@@ -8,9 +9,11 @@ UnorderedArray::UnorderedArray(string *a,int len)
 {
   length = len;
   data = new string[length];
-  for (int i = 0; i < length; i++) {
+  //memcpy(data,a,len*sizeof (string));
+    for (int i = 0; i < length; i++) {
         data[i] = a[i];
     }
+
 }
 
 UnorderedArray:: ~UnorderedArray(){
