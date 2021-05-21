@@ -12,7 +12,7 @@ class BinarySearchTree{
   protected:
     Node* root;
     string* data;
-    void insert(Node* ,string);
+    void insert(Node* , string);
     // int numofdata; //or maybe height of tree?
   public:
     BinarySearchTree(string);

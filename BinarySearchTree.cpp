@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 BinarySearchTree::BinarySearchTree(string a)
@@ -10,11 +11,13 @@ BinarySearchTree::BinarySearchTree(string a)
   root = &test;
 }
 
-void BinarySearchTree::insert(Node* root,string a)
+void BinarySearchTree::insert(Node* root, string a )
 {
-  if( a.compare(root->getData()) > 0)
+  //Δοκιμασε να αλλαξεις την root->getData() με το true και δουλευει. D:<
+  if( root->getData() > a)
+  //if(true)
     {
-      if(root->getRightChild()==NULL)
+      if(root->getRightChild())
       {
         Node *tempNode = new Node(a);
         root->setRightChild(tempNode);
@@ -24,7 +27,7 @@ void BinarySearchTree::insert(Node* root,string a)
     }
   else
     {
-      if(root->getLeftChild()==NULL)
+      if(root->getLeftChild())
       {
         Node *tempNode = new Node(a);
         root->setLeftChild(tempNode);
