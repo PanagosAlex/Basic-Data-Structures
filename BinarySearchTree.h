@@ -11,15 +11,18 @@ using namespace std;
 class BinarySearchTree{
   protected:
     Node* root;
-    string* data;
+    Node* found;
     void insert(Node* , string);
+    bool searchWord(Node *,string);
+    //string* data;
     // int numofdata; //or maybe height of tree?
   public:
     BinarySearchTree(string);
-    //setters getters
-    void insertWord(string data);
+    void setRoot(Node*);
+    Node* getRoot();
+    void insertWord(string);
     bool deleteWord(string);
-    bool findWord(string,Node *&);
+    bool searchWord(string);
     void inOrder(Node*);
     void preOrder(Node*);
     void postOrder(Node*);

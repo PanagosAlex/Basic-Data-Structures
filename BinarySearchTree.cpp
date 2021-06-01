@@ -3,38 +3,48 @@
 #include <string>
 
 
+
 using namespace std;
 
 BinarySearchTree::BinarySearchTree(string a)
 {
-  Node test(a,NULL,NULL);
-  root = &test;
+  Node* node= new Node(a);
+  root = node;
 }
 
-void BinarySearchTree::insert(Node* root, string a )
+void BinarySearchTree:: setRoot(Node* node){
+    root=node;
+}
+
+Node* BinarySearchTree:: getRoot(){
+    return root;
+}
+void BinarySearchTree::insert(Node* r, string a)
 {
-  //Δοκιμασε να αλλαξεις την root->getData() με το true και δουλευει. D:<
-  if( root->getData() > a)
-  //if(true)
+  if( a.compare(r->getData())>0 )
     {
-      if(root->getRightChild())
+      if(r->getRightChild()==NULL)
       {
-        Node *tempNode = new Node(a);
-        root->setRightChild(tempNode);
+          Node *tempNode = new Node(a,NULL,NULL,r);
+          r->setRightChild(tempNode);
       }
       else
-        insert(root->getLeftChild(), a);
+        insert(r->getRightChild(), a);
     }
-  else
+  else //if(a.compare(r->getData())<0)
     {
-      if(root->getLeftChild())
+      if(r->getLeftChild()==NULL)
       {
-        Node *tempNode = new Node(a);
-        root->setLeftChild(tempNode);
+          Node *tempNode = new Node(a,NULL,NULL,r);
+          r->setLeftChild(tempNode);
       }
       else
-        insert(root->getRightChild(), a);
+        insert(r->getLeftChild(), a);
     }
+  /*else{
+    wordCount++;
+    }
+    */
 }
 
 void BinarySearchTree::insertWord(string data) 
@@ -42,66 +52,93 @@ void BinarySearchTree::insertWord(string data)
    insert(root, data);
 }
 
-bool BinarySearchTree:: findWord(string word, Node * &parent){
-    Node * r1= root;
-    Node * prev=root;
-    bool flag= false;
-    while(!flag && !(r1->getRightChild()==NULL || r1->getLeftChild()==NULL)){
-        if(word==r1->getData()){
-            flag=true;
-            parent=prev;
-            return true;
-        }
-        prev=r1;
-        if (word>r1->getData()){
-            r1=r1->getRightChild();
-        }
-        else {
-            r1=r1->getLeftChild();
-        }
-    }
-    return false;
+bool BinarySearchTree:: searchWord(Node * r,string a){
+   if(r==NULL){
+        return false;
+   }
+   if(r->getData()==a){
+       found=r;
+       return true;
+   }
+   else if( a.compare(r->getData())>0 )
+   {
+       return searchWord(r->getRightChild(),a);
+   }
+    else
+   {
+       return searchWord(r->getLeftChild(),a);
+   }
 }
 
-bool BinarySearchTree::deleteWord(string word) {
-    Node *r;
-    Node *toBeDeleted;
-    if(findWord(word,r)){
-        if(r->getLeftChild()->getData()==word)
-            toBeDeleted=r->getLeftChild();
-        else
-            toBeDeleted=r->getRightChild();
-        if(toBeDeleted->getRightChild()==NULL && toBeDeleted->getLeftChild()==NULL){
-            if(r->getLeftChild()->getData()==word){
-                r->setLeftChild(NULL);
-            }
-            else
-            {
-                r->setRightChild(NULL);
-            }
-        }
-        else if (toBeDeleted->getRightChild()!=NULL || toBeDeleted->getLeftChild()!=NULL){
-            Node* child;
-            if(toBeDeleted->getRightChild()!=NULL){
-                child= toBeDeleted->getRightChild();
-            }
-            else{
-                child= toBeDeleted->getLeftChild();
-            }
-            if(r->getLeftChild()->getData()==word)
-                r->setLeftChild(child);
-            else
-                r->setRightChild(child);
-        }
-        else{
-            Node* replace=getMinNode(toBeDeleted);
-            toBeDeleted->setData(replace->getData());
-            deleteWord(replace->getData());
-        }
-        return true;
-    }
-    return false;
+bool BinarySearchTree:: searchWord(string a){
+    searchWord(root,a);
 }
+
+bool BinarySearchTree::deleteWord(string a) {
+   if(!searchWord(root,a)){
+       return false;
+   }
+   else{
+       if(found->hasNoChildren()){
+           if(found->getParent()==NULL){
+               root->setData(" ");
+           }
+           else if(found->isLeftChild()){
+               found->getParent()->setLeftChild(NULL);
+           }
+           else if(found->isRightChild()){
+               found->getParent()->setRightChild(NULL);
+           }
+       }
+       else if(found->hasOneChild()){
+           if(found->getParent()==NULL){
+               if(found->getRightChild()!=NULL){
+                   getRoot()->setData(found->getRightChild()->getData());
+               }
+               else{
+                   getRoot()->setData(found->getLeftChild()->getData());
+               }
+           }
+           if(found->getRightChild()!=NULL){
+
+               if(found->isLeftChild()){
+                   found->getParent()->setLeftChild(found->getRightChild());
+               }
+               if(found->isRightChild()){
+                   found->getParent()->setRightChild(found->getRightChild());
+               }
+           }
+           else{
+               if(found->isLeftChild()){
+                   found->getParent()->setLeftChild(found->getLeftChild());
+               }
+               if(found->isRightChild()){
+                   found->getParent()->setRightChild(found->getLeftChild());
+               }
+           }
+       }
+       else {
+           string replace=getMinNode(found->getRightChild())->getData();
+           if(getMinNode(found->getRightChild())->isLeftChild()){
+               getMinNode(found->getRightChild())->getParent()->setLeftChild(NULL);
+           }
+           if(getMinNode(found->getRightChild())->isRightChild()){
+               getMinNode(found->getRightChild())->getParent()->setRightChild(NULL);
+           }
+           if(found->getParent()==NULL){
+               root->setData(replace);
+           }
+           else if(found->isLeftChild()){
+               found->getParent()->getLeftChild()->setData(replace);
+           }
+          else if(found->isRightChild()){
+               found->getParent()->getRightChild()->setData(replace);
+           }
+       }
+       return true;
+   }
+}
+
 
 void BinarySearchTree::inOrder(Node * root)
 {

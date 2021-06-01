@@ -4,24 +4,23 @@
 #include "OrderedArray.h"
 #include "BinarySearchTree.h"
 #include "Node.h"
+#include "AVLSearchTree.h"
 
 using namespace std;
 
-int main() {/*
-  Node a("test");
-  //Node b("test");
-  Node* pointer;
+int main() {
+    AVLSearchTree tree("leg");
+    tree.insertWord("sky");
+    tree.insertWord("fox");
+    tree.insertWord("cat");
+    tree.insertWord("nit");
+    tree.insertWord("ice");
+    tree.insertWord("vat");
+    tree.insertWord("mud");
+     tree.inOrder(tree.getRoot());
+     cout<<endl;
+     cout<<tree.getHeight()<<endl;
+     cout<<tree.getDifference();
 
-  //ptrBox = &Box1;
-  pointer = &a;
-
-  a.setLeftChild(pointer);
-
-  cout<<a.getData()<<endl<<a.getLeftChild();*/
-
-  BinarySearchTree test("test");
-  test.insertWord("Eva");
-  cout<<"test";
-  
-  return 0;
+    return 0;
 }

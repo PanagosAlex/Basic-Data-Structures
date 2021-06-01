@@ -12,9 +12,11 @@ class Node{
     string data;
     Node *leftchild;
     Node *rightchild;
+    Node *parent;
   public:
+    Node();
     Node(string);
-    Node(string, Node *, Node *);
+    Node(string, Node *l, Node *r,Node *p);
     
     void setData(string);
     string getData();
@@ -22,6 +24,12 @@ class Node{
     Node *getLeftChild();
     void setRightChild(Node *);
     Node *getRightChild();
+    void setParent(Node*);
+    Node *getParent();
+    bool hasOneChild();
+    bool hasNoChildren();
+    bool isRightChild();
+    bool isLeftChild();
 };
 
 #endif
