@@ -71,7 +71,7 @@ bool BinarySearchTree:: searchWord(Node * r,string a){
 }
 
 bool BinarySearchTree:: searchWord(string a){
-    searchWord(root,a);
+    return searchWord(root,a);
 }
 
 bool BinarySearchTree::deleteWord(string a) {
