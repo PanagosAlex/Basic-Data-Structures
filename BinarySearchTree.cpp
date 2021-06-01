@@ -93,13 +93,13 @@ bool BinarySearchTree::deleteWord(string a) {
        else if(found->hasOneChild()){
            if(found->getParent()==NULL){
                if(found->getRightChild()!=NULL){
-                   getRoot()->setData(found->getRightChild()->getData());
+                   setRoot(root->getRightChild());
                }
                else{
-                   getRoot()->setData(found->getLeftChild()->getData());
+                  setRoot(root->getLeftChild());
                }
            }
-           if(found->getRightChild()!=NULL){
+           else if(found->getRightChild()!=NULL){
 
                if(found->isLeftChild()){
                    found->getParent()->setLeftChild(found->getRightChild());
