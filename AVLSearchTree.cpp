@@ -26,9 +26,49 @@ void AVLSearchTree:: insertWord(string a){
     BinarySearchTree::insertWord(a);
     calculateHeight(root);
 }
-void AVLSearchTree:: rightRotation(){
+void AVLSearchTree:: simpleRightRotation(Node* x){
+  Node* tempparent,* tempy,* tempB;
 
-}
-void AVLSearchTree:: leftRotation(){
+  tempparent = x->getParent(); 
+  //tempC = x->getLeftChild();
+  tempy = x->getRightChild();
+  //tempx = tempy->getParent();
+  //tempA = tempy->getLeftChild();
+  tempB = tempy->getRightChild();
 
+  x->setLeftChild(tempB);
+  tempB->setParent(x);
+  tempy->setRightChild(x);
+  x->setParent(tempy);
+  tempy->setParent(tempparent);
 }
+
+void AVLSearchTree:: simpleLeftRotation(Node* x){
+  Node* tempparent,* tempy,* tempB;
+
+  tempparent = x->getParent(); 
+  //tempC = x->getLeftChild();
+  tempy = x->getRightChild();
+  //tempx = tempy->getParent();
+  //tempA = tempy->getLeftChild();
+  tempB = tempy->getRightChild();
+
+  x->setRightChild(tempB);
+  tempB->setParent(x);
+  tempy->setLeftChild(x);
+  x->setParent(tempy);
+  tempy->setParent(tempparent);
+}
+
+//Σημειώσεις μην τις σβήσεις :)
+/*void AVLSearchTree:: simpleLeftRotation(Node* x){
+  Node* tempparent,*tempC,* tempy,* tempx,* tempA,* tempB;
+
+  tempparent = x->getParent(); 
+  tempC = x->getLeftChild();
+  tempy = x->getRightChild();
+  tempx = tempy->getParent();
+  tempA = tempy->getLeftChild();
+  tempB = tempy->getRightChild();
+
+}*/

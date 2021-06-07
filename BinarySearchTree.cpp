@@ -19,6 +19,7 @@ void BinarySearchTree:: setRoot(Node* node){
 Node* BinarySearchTree:: getRoot(){
     return root;
 }
+
 void BinarySearchTree::insert(Node* r, string a)
 {
   if( a.compare(r->getData())>0 )

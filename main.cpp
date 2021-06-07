@@ -18,10 +18,6 @@ int main() {
     tree.insertWord("vat");
     tree.insertWord("mud");
     tree.inOrder(tree.getRoot());
-    cout<<endl;
-    cout<<tree.getHeight()<<endl;
-    cout<<tree.getDifference();
-
 
     return 0;
 }

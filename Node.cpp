@@ -78,7 +78,7 @@ bool Node:: hasNoChildren(){
     }
     return false;
 }
-bool Node::  isRightChild(){
+bool Node:: isRightChild(){
     if(parent->getRightChild()==this){
         return true;
     }

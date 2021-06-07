@@ -14,8 +14,8 @@ public:
     int getHeight();
     int getDifference();
     int calculateHeight(Node* root);
-    void rightRotation();
-    void leftRotation();
+    void simpleRightRotation(Node* x);
+    void simpleLeftRotation(Node* x);
     int maxOfTrees(int a,int b){
         if (a>b){
             return a;
