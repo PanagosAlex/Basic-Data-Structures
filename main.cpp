@@ -5,19 +5,16 @@
 #include "BinarySearchTree.h"
 #include "Node.h"
 #include "AVLSearchTree.h"
-
+#include "FileHandling.h"
 using namespace std;
 
-int main() {
-    AVLSearchTree tree("leg");
-    tree.insertWord("sky");
-    tree.insertWord("fox");
-    tree.insertWord("cat");
-    tree.insertWord("nit");
-    tree.insertWord("ice");
-    tree.insertWord("vat");
-    tree.insertWord("mud");
-    tree.inOrder(tree.getRoot());
 
-    return 0;
+
+int main(){
+    FileHandling f("a.txt");
+    string* data= new string[f.getLength()];
+    data=f.getWords();
+    for(int i=0;i<f.getLength();i++){
+        cout<<data[i]<<endl;
+    }
 }
