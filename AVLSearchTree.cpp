@@ -26,49 +26,90 @@ void AVLSearchTree:: insertWord(string a){
     BinarySearchTree::insertWord(a);
     calculateHeight(root);
 }
+
+void AVLSearchTree:: deleteWord(string a){
+  BinarySearchTree::deleteWord(a);
+  calculateHeight(root);
+}
+
 void AVLSearchTree:: simpleRightRotation(Node* x){
   Node* tempparent,* tempy,* tempB;
 
-  tempparent = x->getParent(); 
-  //tempC = x->getLeftChild();
+ tempparent = x->getParent(); 
   tempy = x->getRightChild();
-  //tempx = tempy->getParent();
-  //tempA = tempy->getLeftChild();
   tempB = tempy->getRightChild();
 
   x->setLeftChild(tempB);
   tempB->setParent(x);
   tempy->setRightChild(x);
   x->setParent(tempy);
-  tempy->setParent(tempparent);
+  if(tempparent!= NULL)
+    tempy->setParent(tempparent);
+  else
+    tempy->setParent(NULL);
 }
 
 void AVLSearchTree:: simpleLeftRotation(Node* x){
   Node* tempparent,* tempy,* tempB;
 
   tempparent = x->getParent(); 
-  //tempC = x->getLeftChild();
   tempy = x->getRightChild();
-  //tempx = tempy->getParent();
-  //tempA = tempy->getLeftChild();
   tempB = tempy->getRightChild();
 
   x->setRightChild(tempB);
   tempB->setParent(x);
   tempy->setLeftChild(x);
   x->setParent(tempy);
-  tempy->setParent(tempparent);
+  if(tempparent!= NULL)
+    tempy->setParent(tempparent);
+  else
+    tempy->setParent(NULL);
 }
 
-//Σημειώσεις μην τις σβήσεις :)
-/*void AVLSearchTree:: simpleLeftRotation(Node* x){
-  Node* tempparent,*tempC,* tempy,* tempx,* tempA,* tempB;
+void AVLSearchTree:: complexRightRotation(Node* x){
+  Node* tempparent,* tempy,* tempx,* tempB1,* tempB2,* tempz;
 
   tempparent = x->getParent(); 
-  tempC = x->getLeftChild();
   tempy = x->getRightChild();
   tempx = tempy->getParent();
-  tempA = tempy->getLeftChild();
-  tempB = tempy->getRightChild();
+  tempz = tempy->getLeftChild();
+  tempB1 = tempz->getLeftChild();
+  tempB2 = tempz->getRightChild();
 
-}*/
+  tempy->setLeftChild(tempB2);
+  tempB2->setParent(tempy);
+  tempx->setRightChild(tempB1);
+  tempB1->setParent(tempx);
+  tempz->setLeftChild(tempx);
+  tempz->setRightChild(tempy);
+  tempx->setParent(tempz);
+  tempy->setParent(tempz);
+  if(tempparent!= NULL)
+    tempz->setParent(tempparent);
+  else
+    tempz->setParent(NULL);
+}
+
+void AVLSearchTree:: complexLeftRotation(Node* x){
+  Node* tempparent,* tempy,* tempx,* tempB1,* tempB2,* tempz;
+
+  tempparent = x->getParent(); 
+  tempy = x->getLeftChild();
+  tempx = tempy->getParent();
+  tempz = tempy->getLeftChild();
+  tempB1 = tempz->getLeftChild();
+  tempB2 = tempz->getRightChild();
+
+  tempx->setLeftChild(tempB2);
+  tempB2->setParent(tempx);
+  tempy->setRightChild(tempB1);
+  tempB1->setParent(tempy);
+  tempz->setRightChild(tempx);
+  tempy->setLeftChild(tempy);
+  tempx->setParent(tempz);
+  tempy->setParent(tempz);
+  if(tempparent!= NULL)
+    tempz->setParent(tempparent);
+  else
+    tempz->setParent(NULL);
+}
