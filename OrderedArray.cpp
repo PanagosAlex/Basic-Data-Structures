@@ -2,7 +2,7 @@
 #include <string>
 
 
-OrderedArray::OrderedArray(string *a, int len): UnorderedArray(a,len){
+OrderedArray::OrderedArray(Data *a, int len): UnorderedArray(a,len){
 }
 
 bool OrderedArray:: findWord(string word, int &pos){
@@ -10,11 +10,11 @@ bool OrderedArray:: findWord(string word, int &pos){
         int r=length-1;
         while (l <= r) {
            int mid = (l + r)/ 2;
-            if (data[mid] == word){
+            if (data[mid].getWord() == word){
                 pos=mid;
                 return true;
             }
-            if (data[mid] < word)
+            if (data[mid].getWord() < word)
                 l = mid + 1;
             else
                 r = mid - 1;
@@ -47,14 +47,16 @@ bool OrderedArray:: deleteWord(string word)
   {
     for(int i=pos; i<length; i++)
     {
-      data[pos]=data[pos+1];
+      data[pos].setWord(data[pos+1].getWord());
+      data[pos].setNumOfTimes(data[pos+1].getNumOfTimes());
     }
 
-    string *temp = new string[length-1];
+    Data *temp = new Data[length-1];
     if(temp==nullptr)
         return false;
     for(int i=0;i<length-1;i++){
-        temp[i]= data[i];
+        temp[i].setWord(data[i].getWord());
+        temp[i].setNumOfTimes(data[i].getNumOfTimes());
     }
     delete[] temp;
     length--;
@@ -63,17 +65,3 @@ bool OrderedArray:: deleteWord(string word)
   return false;
 
 }
-/*
-bool UnorderedArray::addWord(string s) {
-    string *temp= new string[length+1];
-    if(temp==nullptr)
-        return false;
-    for(int i=0;i<length;i++){
-        temp[i]= data[i];
-    }
-    delete[] data;
-    temp[length]=s;
-    data = temp;
-    length++;
-    return true;
-}*/
