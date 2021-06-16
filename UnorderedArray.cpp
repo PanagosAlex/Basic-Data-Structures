@@ -3,13 +3,14 @@
 #include <cstring>
 #include "UnorderedArray.h"
 
+
 using namespace std;
 
-UnorderedArray::UnorderedArray(string *a,int len)
+UnorderedArray::UnorderedArray(Data * a,int len)
 {
   length = len;
-  data = new string[length];
-  //memcpy(data,a,len*sizeof (string));
+  data = new Data[length];
+  //memcpy(data,a,len*sizeof (Data));
     for (int i = 0; i < length; i++) {
         data[i] = a[i];
     }
@@ -24,16 +25,18 @@ bool UnorderedArray::setWord(string w,int pos)
 {
     if(pos>=0 && pos<length)
     {
-      data[pos] = w;
+      Data temp(w);
+      data[pos] = temp;
       return true;
     }
     return false;
 }
 
-string UnorderedArray::getWord(int pos)
+Data UnorderedArray::getWord(int pos)
 {
   return data[pos];
 }
+
 int UnorderedArray::getLength() {
     return length;
 }
@@ -42,7 +45,7 @@ bool UnorderedArray::findWord(string s,int& pos)
 {
   for(int i=0;i<length;i++)
   {
-    if(s == data[i])
+    if(s == data[i].getWord())
     {
       pos=i;
       return true;
@@ -52,35 +55,41 @@ bool UnorderedArray::findWord(string s,int& pos)
 }
 
 bool UnorderedArray::addWord(string s) {
-    string *temp= new string[length+1];
+    Data *temp= new Data[length+1];
     if(temp==nullptr)
         return false;
     for(int i=0;i<length;i++){
-        temp[i]= data[i];
+        temp[i].setWord(data[i].getWord());
+        temp[i].setNumOfTimes(data[i].getNumOfTimes());
     }
     delete[] data;
-    temp[length]=s;
+    temp[length].setWord(s);
+    temp[length].setNumOfTimes(1);
     data = temp;
     length++;
     return true;
 }
 
+// Αυτό δουλεύει? και γιατί δεν το έχουμε φτιάξει δυναμικά?
 bool UnorderedArray::deleteWord(string s)
 {
   int t;
-  string temp;
+  Data temp;
 
   if(findWord(s,t))
   {
-    temp=data[t]; //what's the use of that?
-    data[t]=data[length-1];
-    data[length-1]="~";
+    temp.setWord(data[t].getWord());
+    temp.setNumOfTimes(data[t].getNumOfTimes());
+    data[t].setWord(data[length-1].getWord());
+    data[length-1].setWord("~");
+    data[length-1].setNumOfTimes(0);
     length--;
     return true;
   }
   
   return false;
-}
+}/*
+
 int UnorderedArray::numOfTimes(int n) {
     int times[length];
     for (int i = 0; i < length; i++) {
@@ -96,3 +105,4 @@ int UnorderedArray::numOfTimes(int n) {
     }
     return times[n];
 }
+*/
