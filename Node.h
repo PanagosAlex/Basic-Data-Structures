@@ -3,13 +3,14 @@
 #include <string>
 #include <iostream>
 
+#include "Data.h"
 using namespace std;
 /*
  * This class represents a Node in a Binary Search Tree.
  */
 class Node{
   private:
-    string data;
+    Data data;
     Node *leftchild;
     Node *rightchild;
     Node *parent;
@@ -20,6 +21,8 @@ class Node{
     
     void setData(string);
     string getData();
+    void setTimes(int);
+    int getTimes();
     void setLeftChild(Node *);
     Node *getLeftChild();
     void setRightChild(Node *);

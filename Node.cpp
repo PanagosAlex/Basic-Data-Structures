@@ -4,7 +4,8 @@
 
 using namespace std;
 Node::Node(){
-    data= nullptr;
+    data.setWord(nullptr);
+    data.setNumOfTimes(0);
     leftchild=NULL;
     rightchild=NULL;
     parent= NULL;
@@ -12,7 +13,8 @@ Node::Node(){
 
 Node::Node(string a)
 {
-  data=a;
+  data.setWord(a);
+  data.setNumOfTimes(1);
   leftchild=NULL;
   rightchild=NULL;
   parent= NULL;
@@ -20,7 +22,8 @@ Node::Node(string a)
 
 Node::Node(string a,Node *l, Node *r,Node *p)
 {
-  data=a;
+  data.setWord(a);
+  data.setNumOfTimes(1);
   leftchild=l;
   rightchild=r;
   parent= p;
@@ -28,12 +31,22 @@ Node::Node(string a,Node *l, Node *r,Node *p)
 
 void Node::setData(string d)
 {
-  data=d;
+  data.setWord(d);
 }
 
 string Node::getData()
 {
-  return data;
+  return data.getWord();
+}
+
+void Node::setTimes(int d)
+{
+  data.setNumOfTimes(d);
+}
+
+int Node::getTimes()
+{
+  return data.getNumOfTimes();
 }
 
 void Node::setLeftChild(Node *l)
@@ -89,4 +102,4 @@ bool Node::  isLeftChild(){
         return true;
     }
     return false;
-}
+}*/
