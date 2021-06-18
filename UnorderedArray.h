@@ -14,6 +14,7 @@ class UnorderedArray{
     Data* data;
     int length;
     int numOfData;
+
   public:
 
     UnorderedArray(Data * a,int len);

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <stdio.h>
 
+
 using namespace std;
 
 class FileHandling {
@@ -22,7 +23,6 @@ bool readFile();
 void toLowercase(int);
 void removeBlankSpaces();
 string* Qset(int );
-string conversion(int n);
 };
 
 #endif //FILEHANDLING_H

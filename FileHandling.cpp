@@ -3,6 +3,7 @@
 #include <time.h>
 #include <sstream>
 #include <string>
+
 FileHandling::FileHandling(string name) {
     words= new string[6000000];
     length=6000000;

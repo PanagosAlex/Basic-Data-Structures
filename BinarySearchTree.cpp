@@ -162,12 +162,14 @@ bool BinarySearchTree::deleteWord(string a) {
                found->getParent()->getLeftChild()->setData(replaceW);
                found->getParent()->getLeftChild()->setTimes(replaceN);
            }
+
           else if(found->isRightChild()){
                found->getParent()->getRightChild()->setData(replaceW);
                found->getParent()->getRightChild()->setTimes(replaceN);
            }
        }
        return true;
+
    }
 }
 

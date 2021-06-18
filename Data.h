@@ -19,11 +19,11 @@ public:
     int getNumOfTimes();
 
 
-    Data operator =(Data d);
+    Data &operator =(Data d);
     Data operator ++();
-    friend Data & operator <<(ostream &o,Data &d){
+    friend ostream & operator <<(ostream &o,Data &d){
         o<<"Word:"<<d.getWord()<<" Times:"<<d.getNumOfTimes()<<endl;
-        return d;
+        return o;
     }
 };
 

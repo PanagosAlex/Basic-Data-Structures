@@ -23,6 +23,7 @@ int main(){
     data=f.getWords();
     int k;
     OrderedArray oa(1000);
+
     for(int i=0;i<1000;i++){
         oa.addWord(set[i]);
     }
