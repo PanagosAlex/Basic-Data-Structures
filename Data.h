@@ -14,6 +14,8 @@ public:
 
     void setWord(string w);
     void setNumOfTimes(int n);
+    void increaseNum();
+    void decreaseNum();
     string getWord();
     int getNumOfTimes();
 
