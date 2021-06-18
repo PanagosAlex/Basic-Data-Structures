@@ -19,6 +19,10 @@ void Data::setNumOfTimes(int n) {
     numOfTimes=n;
 }
 
+void Data:: increaseNum(){
+  numOfTimes++;
+}
+
 string Data::getWord() {
     return word;
 }
