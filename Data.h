@@ -17,10 +17,10 @@ public:
     string getWord();
     int getNumOfTimes();
 
-    Data operator ++();
+    /*Data operator ++();
     friend Data & operator <<(ostream &o,Data &d){
         o<<"Word:"<<d.getWord()<<" Times:"<<d.getNumOfTimes();
-    }
+    }*/
 };
 
 

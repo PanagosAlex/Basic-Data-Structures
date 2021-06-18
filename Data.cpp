@@ -27,8 +27,8 @@ int Data::getNumOfTimes() {
     return numOfTimes;
 }
 
-Data Data::operator++() {
+/*Data Data::operator++() {
     numOfTimes++;
     return *this;
-}
+}*/
 

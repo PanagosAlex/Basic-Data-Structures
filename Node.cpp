@@ -49,6 +49,20 @@ int Node::getTimes()
   return data.getNumOfTimes();
 }
 
+void Node::increase()
+{
+  data.setNumOfTimes(data.getNumOfTimes()+1);
+  //setTimes(getTimes()+1);
+  return;
+}
+
+void Node::decrease()
+{
+  data.setNumOfTimes(data.getNumOfTimes()-1);
+  //setTimes(getTimes()+1);
+  return;
+}
+
 void Node::setLeftChild(Node *l)
 {
   leftchild=l;

@@ -22,7 +22,8 @@ Node* BinarySearchTree:: getRoot(){
 
 void BinarySearchTree::insert(Node* r, string a)
 {
-  if( a.compare(r->getData())>0 )
+  if(!searchWord(a)){
+    if( a.compare(r->getData())>0 )
     {
       if(r->getRightChild()==NULL)
       {
@@ -42,6 +43,11 @@ void BinarySearchTree::insert(Node* r, string a)
       else
         insert(r->getLeftChild(), a);
     }
+  }
+  else{
+    increaseDecrease(r, a, true);
+  }
+  
   /*else{
     wordCount++;
     }
@@ -69,6 +75,26 @@ bool BinarySearchTree:: searchWord(Node * r,string a){
    {
        return searchWord(r->getLeftChild(),a);
    }
+   return false;
+}
+
+bool BinarySearchTree:: increaseDecrease(Node * r,string a, bool b){
+   if(r->getData()==a){
+    if(b)
+       r->increase();
+    else
+      r->decrease();
+      return true;
+   }
+   else if( a.compare(r->getData())>0 )
+   {
+       return searchWord(r->getRightChild(),a);
+   }
+    else
+   {
+       return searchWord(r->getLeftChild(),a);
+   }
+   return false;
 }
 
 bool BinarySearchTree:: searchWord(string a){

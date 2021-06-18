@@ -11,10 +11,10 @@ using namespace std;
 
 
 int main(){
-    FileHandling f("a.txt");
+    /*FileHandling f("a.txt");
     string* data= new string[f.getLength()];
     data=f.getWords();
     for(int i=0;i<f.getLength();i++){
         cout<<data[i]<<endl;
-    }
+    }*/
 }

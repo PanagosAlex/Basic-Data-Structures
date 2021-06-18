@@ -14,6 +14,7 @@ class BinarySearchTree{
     Node* found;
     void insert(Node* , string);
     bool searchWord(Node *,string);
+    bool increaseDecrease(Node *,string,bool);
     //string* data;
     // int numofdata; //or maybe height of tree?
   public:
