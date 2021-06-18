@@ -26,9 +26,18 @@ string Data::getWord() {
 int Data::getNumOfTimes() {
     return numOfTimes;
 }
+void Data:: increaseNum(){
+    numOfTimes++;
+}
 
-/*Data Data::operator++() {
+Data Data:: operator =(Data d){
+    word=d.getWord();
+    numOfTimes=d.getNumOfTimes();
+    return *this;
+}
+Data Data::operator++() {
     numOfTimes++;
     return *this;
-}*/
+}
+
 

@@ -109,6 +109,7 @@ bool BinarySearchTree::deleteWord(string a) {
        if(found->hasNoChildren()){
            if(found->getParent()==NULL){
                root->setData(" ");
+               root->setTimes(0);
            }
            else if(found->isLeftChild()){
                found->getParent()->setLeftChild(NULL);
@@ -145,7 +146,8 @@ bool BinarySearchTree::deleteWord(string a) {
            }
        }
        else {
-           string replace=getMinNode(found->getRightChild())->getData();
+           string replaceW=getMinNode(found->getRightChild())->getData();
+           int replaceN=getMinNode(found->getRightChild())->getTimes();
            if(getMinNode(found->getRightChild())->isLeftChild()){
                getMinNode(found->getRightChild())->getParent()->setLeftChild(NULL);
            }
@@ -153,13 +155,16 @@ bool BinarySearchTree::deleteWord(string a) {
                getMinNode(found->getRightChild())->getParent()->setRightChild(NULL);
            }
            if(found->getParent()==NULL){
-               root->setData(replace);
+               root->setData(replaceW);
+               root->setTimes(replaceN);
            }
            else if(found->isLeftChild()){
-               found->getParent()->getLeftChild()->setData(replace);
+               found->getParent()->getLeftChild()->setData(replaceW);
+               found->getParent()->getLeftChild()->setTimes(replaceN);
            }
           else if(found->isRightChild()){
-               found->getParent()->getRightChild()->setData(replace);
+               found->getParent()->getRightChild()->setData(replaceW);
+               found->getParent()->getRightChild()->setTimes(replaceN);
            }
        }
        return true;

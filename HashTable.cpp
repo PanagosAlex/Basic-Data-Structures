@@ -4,12 +4,12 @@ using namespace std;
 
 HashTable::HashTable(int size) {
     length=size*2;
-    data= new Data[size];
+    data= new Data[length];
 }
 
 HashTable::HashTable(string word,int size) {
     length=size*2;
-    data= new Data[size];
+    data= new Data[length];
     Data w(word);
     insertWord(w.getWord());
 }

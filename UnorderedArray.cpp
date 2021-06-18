@@ -10,11 +10,15 @@ UnorderedArray::UnorderedArray(Data * a,int len)
 {
   length = len;
   data = new Data[length];
-  //memcpy(data,a,len*sizeof (Data));
     for (int i = 0; i < length; i++) {
-        data[i] = a[i];
+        data[i]=a[i];
     }
-
+    numOfData=length;
+}
+UnorderedArray:: UnorderedArray(int len){
+    length=len;
+    data = new Data[len];
+    numOfData=0;
 }
 
 UnorderedArray:: ~UnorderedArray(){
@@ -55,54 +59,56 @@ bool UnorderedArray::findWord(string s,int& pos)
 }
 
 bool UnorderedArray::addWord(string s) {
-    Data *temp= new Data[length+1];
-    if(temp==nullptr)
-        return false;
-    for(int i=0;i<length;i++){
-        temp[i].setWord(data[i].getWord());
-        temp[i].setNumOfTimes(data[i].getNumOfTimes());
-    }
-    delete[] data;
-    temp[length].setWord(s);
-    temp[length].setNumOfTimes(1);
-    data = temp;
-    length++;
-    return true;
+
+        int pos=-2;
+        if(findWord(s,pos)){
+            ++data[pos];
+            return true;
+        }
+        else{
+            if(numOfData==length){
+                Data *temp= new Data[length+200];
+                if(temp==nullptr)
+                    return false;
+                numOfData++;
+                for(int i=0;i<length;i++){
+                    temp[i]=data[i];
+                }
+                delete[] data;
+                temp[length].setWord(s);
+                temp[length].setNumOfTimes(1);
+                data = temp;
+                length+=1000;
+                return true;
+            } else{
+                data[numOfData].setWord(s);
+                data[numOfData].setNumOfTimes(1);
+                numOfData++;
+                return true;
+            }
+        }
 }
 
 // Αυτό δουλεύει? και γιατί δεν το έχουμε φτιάξει δυναμικά?
-bool UnorderedArray::deleteWord(string s)
-{
-  int t;
-  Data temp;
-
-  if(findWord(s,t))
-  {
-    temp.setWord(data[t].getWord());
-    temp.setNumOfTimes(data[t].getNumOfTimes());
-    data[t].setWord(data[length-1].getWord());
-    data[length-1].setWord("~");
-    data[length-1].setNumOfTimes(0);
-    length--;
-    return true;
-  }
-  
-  return false;
-}/*
-
-int UnorderedArray::numOfTimes(int n) {
-    int times[length];
-    for (int i = 0; i < length; i++) {
-        times[i] = 0;
-    }
-    for (int i = 0; i < length; i++) {
-        string t = data[i];
-        for (int j = 0; j < length; j++) {
-            if (t == data[j]) {
-                times[i]++;
-            }
-        }
-    }
-    return times[n];
-}
+//οχι δυναμικο σε περιπτωση προσθηκης λεξεων
+/* Data temp;
+temp.setWord(data[t].getWord());
+        temp.setNumOfTimes(data[t].getNumOfTimes());
+        data[t].setWord(data[length - 1].getWord());
+        data[length - 1].setWord("~");
+        data[length - 1].setNumOfTimes(0);
+        length--;
 */
+bool UnorderedArray::deleteWord(string s) {
+    int t;
+   if (findWord(s, t)) {
+        data[t]=data[numOfData-1];
+        data[numOfData].setWord(" ");
+        data[numOfData].setNumOfTimes(0);
+        numOfData--;
+        return true;
+    }
+    return false;
+}
+
+

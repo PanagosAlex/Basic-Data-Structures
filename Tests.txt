@@ -1,15 +1,50 @@
 int dataLen=20;
 
     //UnorderedArray Test
-     string data[20] = {"dolphin","colony","governor","clay","precedent","rage","governor","purple","tokyo","dolphin","rails","infrastructure","bible","tokyo","slime","capitalism","commence","bible","wilderness","rainbow"};
-    UnorderedArray a(data,dataLen);
-     a.addWord("blueple");
-     ///*for(int i=0;i<a.getLength();i++){
-         cout<<a.getWord(i)<<endl;
-     }
-     //*/
+
+     UnorderedArray ua(f.getLength());
+   cout<<"------------UNSORTED ARRAY-------------"<<endl;
+     high_resolution_clock::time_point start = high_resolution_clock::now();
+      for(int i=0;i<f.getLength();i++){
+         ua.addWord(data[i]);
+      }
+      high_resolution_clock::time_point end = high_resolution_clock::now();
+      duration<double> time_span = duration_cast<duration<double>>(end-start);
+      cout<<"Insertion Execution Time:";
+      cout<<time_span.count()<<endl;
+
+      start = high_resolution_clock::now();
+      int pos;
+      for(int i=0;i<1000;i++){
+          ua.findWord(set[i],pos);
+      }
+      end = high_resolution_clock::now();
+      time_span = duration_cast<duration<double>>(end-start);
+      cout<<"Search Execution Time:";
+      cout<<time_span.count()<<endl;
 
      //OrderedArray Test
+
+      OrderedArray oa(f.getLength());
+         cout<<"------------SORTED ARRAY-------------"<<endl;
+         high_resolution_clock::time_point start = high_resolution_clock::now();
+         for(int i=0;i<f.getLength();i++){
+             oa.addWord(data[i]);
+         }
+         high_resolution_clock::time_point end = high_resolution_clock::now();
+         duration<double> time_span = duration_cast<duration<double>>(end-start);
+         cout<<"Insertion Execution Time:";
+         cout<<time_span.count()<<endl;
+
+         start = high_resolution_clock::now();
+         int pos;
+         for(int i=0;i<1000;i++){
+             oa.findWord(set[i],pos);
+         }
+         end = high_resolution_clock::now();
+         time_span = duration_cast<duration<double>>(end-start);
+         cout<<"Search Execution Time:";
+         cout<<time_span.count()<<endl;
 
     int t=0;
     string sorted_data[20] = {"Bible", "Bible","Capitalism","Clay", "Colony", "Commence","Dolphin","Dolphin","Governor","Governor","Infrastructure","Precedent","Purple","Rage","Rails","Rainbow","Slime","Tokyo","Tokyo","Wilderness"};
@@ -40,3 +75,24 @@ int dataLen=20;
     cout<<tree.getHeight()<<endl;
     cout<<tree.getDifference();
 */
+
+   HashTable ht(f.getLength());
+    cout<<"------------HASH TABLE-------------"<<endl;
+    high_resolution_clock::time_point start = high_resolution_clock::now();
+    for(int i=0;i<f.getLength();i++){
+        ht.insertWord(data[i]);
+    }
+    high_resolution_clock::time_point end = high_resolution_clock::now();
+    duration<double> time_span = duration_cast<duration<double>>(end-start);
+    cout<<"Insertion Execution Time:";
+    cout<<time_span.count()<<endl;
+
+    start = high_resolution_clock::now();
+    int pos;
+    for(int i=0;i<1000;i++){
+        ht.searchWord(set[i]);
+    }
+    end = high_resolution_clock::now();
+    time_span = duration_cast<duration<double>>(end-start);
+    cout<<"Search Execution Time:";
+    cout<<time_span.count()<<endl;

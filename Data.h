@@ -14,14 +14,19 @@ public:
 
     void setWord(string w);
     void setNumOfTimes(int n);
+    void increaseNum();
     string getWord();
     int getNumOfTimes();
 
-    /*Data operator ++();
+
+    Data operator =(Data d);
+    Data operator ++();
     friend Data & operator <<(ostream &o,Data &d){
-        o<<"Word:"<<d.getWord()<<" Times:"<<d.getNumOfTimes();
-    }*/
+        o<<"Word:"<<d.getWord()<<" Times:"<<d.getNumOfTimes()<<endl;
+        return d;
+    }
 };
+
 
 
 #endif //DATA_H
