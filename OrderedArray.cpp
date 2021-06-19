@@ -62,7 +62,9 @@ if(numOfData<length){
         }
         data[j + 1] = k;
     }
+    return true;
 }
+    return false;
 }
 
 /*

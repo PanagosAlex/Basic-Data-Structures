@@ -29,15 +29,15 @@ int main() {
     FileHandling f("small-file.txt");
     string *data;
     string *set;
-    set = f.Qset(10);
+    set = f.Qset(50);
     data = f.getWords();
 
-    UnorderedArray ua(10);
-    OrderedArray oa(10);
+    UnorderedArray ua(50);
+    OrderedArray oa(50);
     BinarySearchTree bst(set[0]);
-    HashTable ht(10);
+    HashTable ht(50);
 
-    for(int i=0;i<10;i++){
+    for(int i=0;i<50;i++){
         ua.insertWord(set[i]);
         oa.insertWord(set[i]);
         ht.insertWord(set[i]);

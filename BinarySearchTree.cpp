@@ -28,7 +28,7 @@ Node* BinarySearchTree:: getRoot(){
 */
 void BinarySearchTree::insert(Node* r, string a)
 { 
-  if(!searchWord(a)){
+  if(!search(r,a)){
     if( a.compare(r->getData())>0 )
     {
       if(r->getRightChild()==NULL)
@@ -51,7 +51,7 @@ void BinarySearchTree::insert(Node* r, string a)
     }
   }
   else{
-    increase(r, a);
+    found->increase();
   }
 }
 /*
