@@ -29,14 +29,5 @@ public:
         }
         return b;
     }
-    void simpleLeftRotationtest(){
-      simpleLeftRotation(root);
-    }
-    void simpleRightRotationtest(){
-      simpleRightRotation(root);
-    }
-    void complexRightRotationtest(){
-      complexRightRotation(root);
-    }
 };
 #endif //AVLSEARCHTREE_H
