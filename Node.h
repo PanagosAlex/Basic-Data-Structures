@@ -24,7 +24,6 @@ class Node{
     void setTimes(int);
     int getTimes();
     void increase();
-    void decrease();
     void setLeftChild(Node *);
     Node *getLeftChild();
     void setRightChild(Node *);
