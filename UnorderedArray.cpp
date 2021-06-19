@@ -2,7 +2,9 @@
 #include "UnorderedArray.h"
 
 using namespace std;
-
+/*
+* κατασκευαστής που δέχεται ως όρισμα έναν πίνακα απο Data και το μέγεθος του πίνακα
+*/
 UnorderedArray::UnorderedArray(Data * a,int len)
 {
   length = len;
@@ -12,16 +14,23 @@ UnorderedArray::UnorderedArray(Data * a,int len)
     }
     numOfData=length;
 }
+/*
+* κατασκευαστής που δέχεται ως όρισμα μέγεθος του πίνακα
+*/
 UnorderedArray:: UnorderedArray(int len){
     length=len;
     data = new Data[len];
     numOfData=0;
 }
-
+/*
+* καταστροφέας
+*/
 UnorderedArray:: ~UnorderedArray(){
     delete[] data;
 }
-
+/*
+* setter που βάζει στην θεση pos την λέξη w
+*/
 bool UnorderedArray::setWord(string w,int pos)
 {
     if(pos>=0 && pos<length)
@@ -32,16 +41,22 @@ bool UnorderedArray::setWord(string w,int pos)
     }
     return false;
 }
-
+/*
+* getter που επιστρέφει την λέξη στην θέση pos
+*/
 Data UnorderedArray::getWord(int pos)
 {
   return data[pos];
 }
-
+/*
+* getter που βάζει το μέγεθος του πίνακα
+*/
 int UnorderedArray::getLength() {
     return length;
 }
-
+/*
+* δέχεται ως όρισμα ένα string και με αναφορά ένα int. επιστρέφει true αν βρει το string μέσα στον πίνακα και στο int γράφει την θέση του και false σε κάθε άλλη περίπτωση
+*/
 bool UnorderedArray::findWord(string s,int& pos)
 {
   for(int i=0;i<length;i++)
@@ -54,7 +69,9 @@ bool UnorderedArray::findWord(string s,int& pos)
   }
   return false;
 }
-
+/*
+* δέχεται ως όρισμα ένα string. επιστρέφει true αν μπορέσει να προσθέσει την λέξη στον πίνακα και false σε κάθε άλλη περίπτωση
+*/
 bool UnorderedArray::addWord(string s) {
 
         int pos=-2;
@@ -85,16 +102,8 @@ bool UnorderedArray::addWord(string s) {
             }
         }
 }
-
-// Αυτό δουλεύει? και γιατί δεν το έχουμε φτιάξει δυναμικά?
-//οχι δυναμικο σε περιπτωση προσθηκης λεξεων
-/* Data temp;
-temp.setWord(data[t].getWord());
-        temp.setNumOfTimes(data[t].getNumOfTimes());
-        data[t].setWord(data[length - 1].getWord());
-        data[length - 1].setWord("~");
-        data[length - 1].setNumOfTimes(0);
-        length--;
+/*
+* δέχεται ως όρισμα ένα string. επιστρέφει true αν αφεραίσει το string μέσα από τον πίνακα και false σε κάθε άλλη περίπτωση
 */
 bool UnorderedArray::deleteWord(string s) {
     int t;
