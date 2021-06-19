@@ -25,8 +25,8 @@ protected:
     Data getWord(int);
     int getLength();
 
-    bool findWord(string, int&);
-    bool addWord(string);
+    bool searchWord(string, int&);
+    bool insertWord(string);
     bool deleteWord(string);
     void printData(){
         for(int i=0;i<numOfData;i++) {

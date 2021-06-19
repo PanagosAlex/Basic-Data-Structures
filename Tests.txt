@@ -6,7 +6,7 @@ int dataLen=20;
    cout<<"------------UNSORTED ARRAY-------------"<<endl;
      high_resolution_clock::time_point start = high_resolution_clock::now();
       for(int i=0;i<f.getLength();i++){
-         ua.addWord(data[i]);
+         ua.insertWord(data[i]);
       }
       high_resolution_clock::time_point end = high_resolution_clock::now();
       duration<double> time_span = duration_cast<duration<double>>(end-start);
@@ -16,7 +16,7 @@ int dataLen=20;
       start = high_resolution_clock::now();
       int pos;
       for(int i=0;i<1000;i++){
-          ua.findWord(set[i],pos);
+          ua.searchWord(set[i],pos);
       }
       end = high_resolution_clock::now();
       time_span = duration_cast<duration<double>>(end-start);
@@ -26,26 +26,26 @@ int dataLen=20;
      //OrderedArray Test
 
 
-      OrderedArray oa(f.getLength());
-         cout<<"------------SORTED ARRAY-------------"<<endl;
-         high_resolution_clock::time_point start = high_resolution_clock::now();
-         for(int i=0;i<f.getLength();i++){
-             oa.addWord(data[i]);
-         }
-         high_resolution_clock::time_point end = high_resolution_clock::now();
-         duration<double> time_span = duration_cast<duration<double>>(end-start);
-         cout<<"Insertion Execution Time:";
-         cout<<time_span.count()<<endl;
+     OrderedArray oa(f.getLength());
+        cout<<"------------ORDERED ARRAY-------------"<<endl;
+        high_resolution_clock::time_point start = high_resolution_clock::now();
+        for(int i=0;i<f.getLength();i++){
+            oa.insertWord(data[i]);
+        }
+        high_resolution_clock::time_point end = high_resolution_clock::now();
+        duration<double> time_span = duration_cast<duration<double>>(end-start);
+        cout<<"Insertion Execution Time:";
+        cout<<time_span.count()<<endl;
 
-         start = high_resolution_clock::now();
-         int pos;
-         for(int i=0;i<1000;i++){
-             oa.findWord(set[i],pos);
-         }
-         end = high_resolution_clock::now();
-         time_span = duration_cast<duration<double>>(end-start);
-         cout<<"Search Execution Time:";
-         cout<<time_span.count()<<endl;
+        start = high_resolution_clock::now();
+        int pos;
+        for(int i=0;i<1000;i++){
+            oa.searchWord(set[i],pos);
+        }
+        end = high_resolution_clock::now();
+        time_span = duration_cast<duration<double>>(end-start);
+        cout<<"Search Execution Time:";
+        cout<<time_span.count()<<endl;
 
     int t=0;
     string sorted_data[20] = {"Bible", "Bible","Capitalism","Clay", "Colony", "Commence","Dolphin","Dolphin","Governor","Governor","Infrastructure","Precedent","Purple","Rage","Rails","Rainbow","Slime","Tokyo","Tokyo","Wilderness"};

@@ -57,7 +57,7 @@ int UnorderedArray::getLength() {
 /*
 * δέχεται ως όρισμα ένα string και με αναφορά ένα int. επιστρέφει true αν βρει το string μέσα στον πίνακα και στο int γράφει την θέση του και false σε κάθε άλλη περίπτωση
 */
-bool UnorderedArray::findWord(string s,int& pos)
+bool UnorderedArray::searchWord(string s,int& pos)
 {
   for(int i=0;i<length;i++)
   {
@@ -72,10 +72,10 @@ bool UnorderedArray::findWord(string s,int& pos)
 /*
 * δέχεται ως όρισμα ένα string. επιστρέφει true αν μπορέσει να προσθέσει την λέξη στον πίνακα και false σε κάθε άλλη περίπτωση
 */
-bool UnorderedArray::addWord(string s) {
+bool UnorderedArray::insertWord(string s) {
 
         int pos=-2;
-        if(findWord(s,pos)){
+        if(searchWord(s,pos)){
             ++data[pos];
             return true;
         }
@@ -107,7 +107,7 @@ bool UnorderedArray::addWord(string s) {
 */
 bool UnorderedArray::deleteWord(string s) {
     int t;
-   if (findWord(s, t)) {
+   if (searchWord(s, t)) {
         data[t]=data[numOfData-1];
         data[numOfData].setWord(" ");
         data[numOfData].setNumOfTimes(0);

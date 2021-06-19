@@ -10,25 +10,10 @@ public:
     OrderedArray(Data *,int);
     OrderedArray(int );
 
-    bool findWord(string, int&);
-    bool addWord(string);
+    bool searchWord(string, int&);
+    bool insertWord(string);
     bool deleteWord(string);
-    bool insertword(string w){
-        UnorderedArray::addWord(w);
-        int j;
-        Data k;
-        for (int i = 1; i < numOfData; i++)
-        {
-            k = data[i];
-            j = i - 1;
-            while (j >= 0 && data[j].getWord() > k.getWord())
-            {
-                data[j + 1] = data[j];
-                j--;
-            }
-            data[j + 1] = k;
-        }
-    }
+
 };
 
 
