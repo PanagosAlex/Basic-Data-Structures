@@ -34,7 +34,7 @@ int main() {
 
     UnorderedArray ua(10);
     OrderedArray oa(10);
-    BinarySearchTree bst(set[1]);
+    BinarySearchTree bst(set[0]);
     HashTable ht(10);
 
     for(int i=0;i<10;i++){
