@@ -14,7 +14,7 @@ class BinarySearchTree{
     Node* found;
     void insert(Node* , string);
     bool search(Node *,string);
-    bool increaseDecrease(Node *,string,bool);
+    bool increase(Node *,string);
   public:
     BinarySearchTree(string);
     void setRoot(Node*);

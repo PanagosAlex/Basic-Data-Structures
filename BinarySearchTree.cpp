@@ -2,24 +2,30 @@
 #include <iostream>
 #include <string>
 
-//found, prepei na yparxei? Δεν θα ήταν πιο αποτελεσματικό να γίνει όρισμα στις συναρτήσεις που το χρειάζεσαι ως &found ?
-
 using namespace std;
-
+/*
+* κατασκευαστής που δέχεται ως όρισμα μια λέξη a
+*/
 BinarySearchTree::BinarySearchTree(string a)
 {
   Node* node= new Node(a);
   root = node;
 }
-
+/*
+* setter για την ρίζα του δέντρου
+*/
 void BinarySearchTree:: setRoot(Node* node){
     root=node;
 }
-
+/*
+* getter για την ρίζα του δέντρου
+*/
 Node* BinarySearchTree:: getRoot(){
     return root;
 }
-
+/*
+* δέχεται ως ορίσματα εναν δείκτη r και μια λέξη a και εισάγει στο δέντρο από το r και κάτω την λέξη a
+*/
 void BinarySearchTree::insert(Node* r, string a)
 { 
   if(!searchWord(a)){
@@ -45,15 +51,19 @@ void BinarySearchTree::insert(Node* r, string a)
     }
   }
   else{
-    increaseDecrease(r, a, true);
+    increase(r, a);
   }
 }
-
+/*
+* δέχεται ως ορίσματα μια λέξη και καλεί την προστατευμένη συνάρτηση insert
+*/
 void BinarySearchTree::insertWord(string data) 
 {
    insert(root, data);
 }
-
+/*
+* δέχεται ως ορίσματα εναν δείκτη r και μια λέξη a και ψάχνει στο δέντρο να βρει a από το r και κάτω
+*/
 bool BinarySearchTree:: search(Node * r,string a){
    if(r==NULL){
         return false;
@@ -72,14 +82,12 @@ bool BinarySearchTree:: search(Node * r,string a){
    }
    return false;
 }
-
-bool BinarySearchTree:: increaseDecrease(Node * r,string a, bool b){
+/*
+* δέχεται ως ορίσματα εναν δείκτη r και μια λέξη a και ένα bool b. Αν το b είναι true αυξάνει τον αριθμό εμφάνισης
+*/
+bool BinarySearchTree:: increase(Node * r,string a){
    if(r->getData()==a){
-    if(b)
        r->increase();
-    else
-      r->decrease();
-      return true;
    }
    else if( a.compare(r->getData())>0 )
    {
@@ -91,7 +99,9 @@ bool BinarySearchTree:: increaseDecrease(Node * r,string a, bool b){
    }
    return false;
 }
-
+/*
+* δέχεται ως ορίσματα μια λέξη και καλεί την προστατευμένη συνάρτηση search
+*/
 bool BinarySearchTree:: searchWord(string a){
     return search(root,a);
 }
@@ -167,7 +177,9 @@ bool BinarySearchTree::deleteWord(string a) {
 
    }
 }
-
+/*
+* δέχεται ως ορίσματα έναν δείκτη Node και μεφανίαζει όλα τα στοιχεία σε inorder μορφή
+*/
 void BinarySearchTree::inOrder(Node * root)
 {
   if (!root)
@@ -178,7 +190,9 @@ void BinarySearchTree::inOrder(Node * root)
   cout<<root->getData()<<" ";
   inOrder(root->getRightChild());
 }
-
+/*
+* δέχεται ως ορίσματα έναν δείκτη Node και μεφανίαζει όλα τα στοιχεία σε preorder μορφή
+*/
 void BinarySearchTree::preOrder(Node * root)
 {
   if (!root)
@@ -189,7 +203,9 @@ void BinarySearchTree::preOrder(Node * root)
   preOrder(root->getLeftChild());
   preOrder(root->getRightChild());
 }
-
+/*
+* δέχεται ως ορίσματα έναν δείκτη Node και μεφανίαζει όλα τα στοιχεία σε postorder μορφή
+*/
 void BinarySearchTree::postOrder(Node * root)
 {
   if (!root)
@@ -200,7 +216,9 @@ void BinarySearchTree::postOrder(Node * root)
   postOrder(root->getRightChild());
   cout<<root->getData()<<" ";
 }
-
+/*
+* δέχεται ως ορίσματα έναν δείκτη Node και επιστρέφει το ελάχιστο στοιχείο του δέντρου
+*/
 Node* BinarySearchTree:: getMinNode(Node* n){
     while (n->getLeftChild() != NULL) {
         n = n->getLeftChild();
