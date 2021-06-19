@@ -1,17 +1,28 @@
 #include "AVLSearchTree.h"
-
+/*
+* κατασκευαστής που δέχεται ως όρισμα μια λέξη a
+*/
 AVLSearchTree:: AVLSearchTree(string a):BinarySearchTree(a){
 
     height=1;
     difference=0;
 }
+/*
+* getter για το height
+*/
 int AVLSearchTree:: getHeight(){
     return height;
 }
+/*
+* getter για το difference
+*/
 int AVLSearchTree:: getDifference(){
     difference=abs(calculateHeight(root->getLeftChild())-calculateHeight(root->getRightChild()));
     return difference;
 }
+/*
+* υπολογίζει την διαφορά στο ύψος του δέντρου
+*/
 int AVLSearchTree:: calculateHeight(Node* p){
     if(p==NULL){
         return 0;
@@ -21,17 +32,23 @@ int AVLSearchTree:: calculateHeight(Node* p){
         return height;
     }
 }
-
+/*
+* εισάγει μια λέξη a στο δέντρο
+*/
 void AVLSearchTree:: insertWord(string a){
     BinarySearchTree::insertWord(a);
     calculateHeight(root);
 }
-
+/*
+* αφαιρεί μια λέξη a άπο το δέντρο
+*/
 void AVLSearchTree:: deleteWord(string a){
   BinarySearchTree::deleteWord(a);
   calculateHeight(root);
 }
-
+/*
+* επιτελεί μια απλή δεξιά στροφή
+*/
 void AVLSearchTree:: simpleRightRotation(Node* x){
   Node* tempparent,* tempy,* tempB;
 
@@ -48,7 +65,9 @@ void AVLSearchTree:: simpleRightRotation(Node* x){
   else
     tempy->setParent(NULL);
 }
-
+/*
+* επιτελεί μια απλή αριστερή στροφή
+*/
 void AVLSearchTree:: simpleLeftRotation(Node* x){
   Node* tempparent,* tempy,* tempB;
 
@@ -65,7 +84,9 @@ void AVLSearchTree:: simpleLeftRotation(Node* x){
   else
     tempy->setParent(NULL);
 }
-
+/*
+* επιτελεί μια πολύπλοκη δεξιά στροφή
+*/
 void AVLSearchTree:: complexRightRotation(Node* x){
   Node* tempparent,* tempy,* tempx,* tempB1,* tempB2,* tempz;
 
@@ -89,7 +110,9 @@ void AVLSearchTree:: complexRightRotation(Node* x){
   else
     tempz->setParent(NULL);
 }
-
+/*
+* επιτελεί μια πολύπλοκη αριστερή στροφή
+*/
 void AVLSearchTree:: complexLeftRotation(Node* x){
   Node* tempparent,* tempy,* tempx,* tempB1,* tempB2,* tempz;
 
