@@ -201,7 +201,7 @@ void BinarySearchTree::preOrder(Node * root)
   {
     return;
   }
-  cout<<root->getData()<<" ";
+  cout<<"Word: "<<root->getData()<<" "<<"Times: "<<root->getTimes()<<endl;
   preOrder(root->getLeftChild());
   preOrder(root->getRightChild());
 }
@@ -216,7 +216,7 @@ void BinarySearchTree::postOrder(Node * root)
   }
   postOrder(root->getLeftChild());
   postOrder(root->getRightChild());
-  cout<<root->getData()<<" ";
+  cout<<"Word: "<<root->getData()<<" "<<"Times: "<<root->getTimes()<<endl;
 }
 /*
 * δέχεται ως ορίσματα έναν δείκτη Node και επιστρέφει το ελάχιστο στοιχείο του δέντρου
