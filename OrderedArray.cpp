@@ -14,15 +14,15 @@ bool OrderedArray:: findWord(string word, int &pos){
         int r=length-1;
         while (l <= r) {
            int mid = (l + r)/ 2;
+            pos=mid;
             if (data[mid].getWord() == word){
                 pos=mid;
                 return true;
             }
-            if (data[mid].getWord() < word)
+            if (data[mid].getWord() < word )
                 l = mid + 1;
             else
                 r = mid - 1;
-            pos=mid;
         }
         return false;
 }
@@ -76,3 +76,6 @@ bool OrderedArray:: deleteWord(string word)
   return false;
 
 }
+
+
+

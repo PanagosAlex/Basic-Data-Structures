@@ -15,32 +15,44 @@ using namespace std::chrono;
 
 
 
-int main(){
-    /*FileHandling f("small-file.txt");
-    string* data;
-    string* set;
-    set=f.Qset(1000);
-    data=f.getWords();
+int main() {
+    FileHandling f("small-file.txt");
+    string *data;
+    string *set;
+    set = f.Qset(1000);
+    data = f.getWords();
     int k;
-    OrderedArray oa(1000);
-
-    for(int i=0;i<1000;i++){
-        oa.addWord(set[i]);
-    }
-    oa.printData();*/
+//    OrderedArray oa(1000);
+//
+//    for(int i=0;i<1000;i++){
+//        oa.addWord(set[i]);
+//    }
+//    oa.printData();*/
 
     //Data a("test");
-    OrderedArray test(5);
-    int p=-1;
+OrderedArray test(5);
+int p=-1;
+//
+//    test.addWord("test1");
+//    test.addWord("test2");
+//    test.addWord("test3");
+//    test.addWord("test4");
+//    test.addWord("test5");
+//
+//   test.printData();
+//
+//    test.findWord("test5", p);
+//    cout<<"test"<<endl<<p<<endl;
 
-    test.addWord("test1");
-    test.addWord("test2");
-    test.addWord("test3");
-    test.addWord("test4");
-    test.addWord("test5");
+    test.insertword("test3");
+test.insertword("test1");
+    test.insertword("test5");
+    test.insertword("test2");
+    test.insertword("test3");
+    test.insertword("test4");
+
+    cout<<test.deleteWord("test5");
+
 
     test.printData();
-
-    test.findWord("test5", p);
-    cout<<"test"<<endl<<p<<endl;
 }

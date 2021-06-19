@@ -168,7 +168,6 @@ bool BinarySearchTree::deleteWord(string a) {
    }
 }
 
-
 void BinarySearchTree::inOrder(Node * root)
 {
   if (!root)

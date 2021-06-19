@@ -10,7 +10,7 @@ using namespace std;
  * This class represents an Unordered Array.
  */
 class UnorderedArray{
-  protected:
+protected:
     Data* data;
     int length;
     int numOfData;
@@ -29,10 +29,8 @@ class UnorderedArray{
     bool addWord(string);
     bool deleteWord(string);
     void printData(){
-        int i=0;
-        while (i<numOfData){
-            cout<<data[i];
-            i++;
+        for(int i=0;i<numOfData;i++) {
+            cout << data[i];
         }
     }
 
