@@ -4,6 +4,10 @@
 #include <iostream>
 using namespace std;
 
+/*
+ * Αυτή η κλάση αναπαριστά τα δεδομένα. Τα δεδομένα αποτελόυν ζεύγη μίας συμβολοσειράς και ενός ακεραίου.
+ */
+
 class Data {
 private:
     string word;

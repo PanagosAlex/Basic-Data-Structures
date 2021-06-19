@@ -68,7 +68,7 @@ bool BinarySearchTree:: search(Node * r,string a){
    if(r==NULL){
         return false;
    }
-   if(r->getData()==a){
+   if(r->getData().compare(a)==0){
        found=r;
        return true;
    }
@@ -105,7 +105,9 @@ bool BinarySearchTree:: increase(Node * r,string a){
 bool BinarySearchTree:: searchWord(string a){
     return search(root,a);
 }
-
+/*
+* δέχεται ως ορίσματα μια λέξη και την διαγράφει από την δομή
+ */
 bool BinarySearchTree::deleteWord(string a) {
    if(!search(root,a)){
        return false;
@@ -187,7 +189,7 @@ void BinarySearchTree::inOrder(Node * root)
     return;
   }
   inOrder(root->getLeftChild());
-  cout<<root->getData()<<" ";
+  cout<<"Word: "<<root->getData()<<" "<<"Times: "<<root->getTimes()<<endl;
   inOrder(root->getRightChild());
 }
 /*

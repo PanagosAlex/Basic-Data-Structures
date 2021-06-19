@@ -3,6 +3,10 @@
 #include <string>
 #include "BinarySearchTree.h"
 
+/*
+ * Αυτή η κλάση αναπαριστά ένα Δυαδικό Δέντρο τυπου AVL
+ */
+
 class AVLSearchTree: public BinarySearchTree{
 private:
     int height;

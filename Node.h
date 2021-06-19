@@ -6,7 +6,7 @@
 #include "Data.h"
 using namespace std;
 /*
- * This class represents a Node in a Binary Search Tree.
+ * Αυτή η κλάση αναπαριστά έναν κόμβο.
  */
 class Node{
   private:

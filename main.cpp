@@ -1,3 +1,10 @@
+/*
+*AEM: 3591
+*Ονοματεπώνυμο: Ευαγγελία Στάμογλου
+*
+*AEM: 3782
+*Ονοματεπώνυμο: Αλέξανδρος Πανάγος
+*/
 #include <iostream>
 #include <string>
 #include "UnorderedArray.h"
@@ -13,19 +20,38 @@
 using namespace std;
 using namespace std::chrono;
 
-
+/*
+ * Αυτή είναι η κύρια κλάση του προγράμματος. Κατά την εκτέλεση εισάγει 500 τυχαίες
+ * λέξεις στις δομές και εμφανίζει ανα δομή τις λέξεις που περιέχει και τις εμφανίσεις τους.
+ */
 
 int main() {
     FileHandling f("small-file.txt");
     string *data;
     string *set;
-    set = f.Qset(1000);
+    set = f.Qset(10);
     data = f.getWords();
 
+    UnorderedArray ua(10);
+    OrderedArray oa(10);
+    BinarySearchTree bst(set[1]);
+    HashTable ht(10);
 
+    for(int i=0;i<10;i++){
+        ua.insertWord(set[i]);
+        oa.insertWord(set[i]);
+        ht.insertWord(set[i]);
+        if(i>=1)
+            bst.insertWord(set[i]);
+    }
 
-
-
-
+    cout<<"-----------------------UNORDERED ARRAY-----------------------"<<endl;
+    ua.printData();
+    cout<<"-----------------------ORDERED ARRAY-----------------------"<<endl;
+    oa.printData();
+    cout<<"-----------------------HASH TABLE-----------------------"<<endl;
+    ht.printData();
+    cout<<"-----------------------BINARY SEARCH TREE-----------------------"<<endl;
+    bst.inOrder(bst.getRoot());
 
 }

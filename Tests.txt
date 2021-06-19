@@ -47,21 +47,7 @@ int dataLen=20;
         cout<<"Search Execution Time:";
         cout<<time_span.count()<<endl;
 
-    int t=0;
-    string sorted_data[20] = {"Bible", "Bible","Capitalism","Clay", "Colony", "Commence","Dolphin","Dolphin","Governor","Governor","Infrastructure","Precedent","Purple","Rage","Rails","Rainbow","Slime","Tokyo","Tokyo","Wilderness"};
-    OrderedArray b(sorted_data, dataLen);
-    ///*cout<<b.findWord("Random",t)<<endl;
-    cout<<t<<endl;
-    cout<<b.findWord("Dolphin",t)<<endl;
-    cout<<t<<endl;
-    cout<<"test"<<endl;
-    cout<<b.addWord("Eva")<<endl;
-    cout<<b.findWord("Eva",t)<<endl;
-    cout<<t<<endl<<b.getWord(t)<<endl;
-    cout<<b.findWord("Eva",t)<<endl;
-    cout<<b.deleteWord("Eva")<<endl;
-   cout<<b.findWord("Eva",t);
-   // */
+
 
   /*  AVLSearchTree tree("leg");
     tree.insertWord("sky");

@@ -4,7 +4,9 @@
 #include <iostream>
 #include "UnorderedArray.h"
 
-
+/*
+ * Αυτή η κλάση αναπαριστά έναν Ταξινομημένο Πίνακα
+ */
 class OrderedArray: public UnorderedArray{
 public:
     OrderedArray(Data *,int);

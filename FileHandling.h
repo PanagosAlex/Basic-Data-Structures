@@ -5,6 +5,9 @@
 #include <fstream>
 #include <stdio.h>
 
+/*
+ * Αυτή η κλάση είναι υπεύθυνη για τη διαχείτηση του αρχείου.
+ */
 
 using namespace std;
 

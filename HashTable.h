@@ -2,6 +2,9 @@
 #define HASHTABLE_H
 #include "Data.h"
 
+/*
+ * Αυτή η κλάση αναπαριστά έναν πίνακα κατακερματισμού.
+ */
 class HashTable {
 private:
     Data* data;

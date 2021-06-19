@@ -7,7 +7,7 @@ using namespace std;
 #include "Data.h"
 using namespace std;
 /*
- * This class represents an Unordered Array.
+ * Αυτή η κλάση αναπαριστά έναν Αταξινόμητο Πίνακα
  */
 class UnorderedArray{
 protected:

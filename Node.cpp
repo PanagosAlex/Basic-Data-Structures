@@ -7,7 +7,7 @@ using namespace std;
 * κατασκευαστής που δεν δέχεται κανένα όρισμα
 */
 Node::Node(){
-    data.setWord(nullptr);
+    data.setWord(" ");
     data.setNumOfTimes(0);
     leftchild=NULL;
     rightchild=NULL;
@@ -68,8 +68,7 @@ int Node::getTimes()
 */
 void Node::increase()
 {
-  data.setNumOfTimes(data.getNumOfTimes()+1);
-  //setTimes(getTimes()+1);
+  ++data;
   return;
 }
 /*
