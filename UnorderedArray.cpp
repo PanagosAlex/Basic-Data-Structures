@@ -1,7 +1,6 @@
 #include <string>
 #include "UnorderedArray.h"
 
-
 using namespace std;
 
 UnorderedArray::UnorderedArray(Data * a,int len)
@@ -108,5 +107,3 @@ bool UnorderedArray::deleteWord(string s) {
     }
     return false;
 }
-
-

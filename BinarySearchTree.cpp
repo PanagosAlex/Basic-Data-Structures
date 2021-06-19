@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-
+//found, prepei na yparxei? Δεν θα ήταν πιο αποτελεσματικό να γίνει όρισμα στις συναρτήσεις που το χρειάζεσαι ως &found ?
 
 using namespace std;
 
@@ -21,7 +21,7 @@ Node* BinarySearchTree:: getRoot(){
 }
 
 void BinarySearchTree::insert(Node* r, string a)
-{
+{ 
   if(!searchWord(a)){
     if( a.compare(r->getData())>0 )
     {
@@ -47,11 +47,6 @@ void BinarySearchTree::insert(Node* r, string a)
   else{
     increaseDecrease(r, a, true);
   }
-  
-  /*else{
-    wordCount++;
-    }
-    */
 }
 
 void BinarySearchTree::insertWord(string data) 
@@ -59,7 +54,7 @@ void BinarySearchTree::insertWord(string data)
    insert(root, data);
 }
 
-bool BinarySearchTree:: searchWord(Node * r,string a){
+bool BinarySearchTree:: search(Node * r,string a){
    if(r==NULL){
         return false;
    }
@@ -69,11 +64,11 @@ bool BinarySearchTree:: searchWord(Node * r,string a){
    }
    else if( a.compare(r->getData())>0 )
    {
-       return searchWord(r->getRightChild(),a);
+       return search(r->getRightChild(),a);
    }
     else
    {
-       return searchWord(r->getLeftChild(),a);
+       return search(r->getLeftChild(),a);
    }
    return false;
 }
@@ -88,21 +83,21 @@ bool BinarySearchTree:: increaseDecrease(Node * r,string a, bool b){
    }
    else if( a.compare(r->getData())>0 )
    {
-       return searchWord(r->getRightChild(),a);
+       return search(r->getRightChild(),a);
    }
     else
    {
-       return searchWord(r->getLeftChild(),a);
+       return search(r->getLeftChild(),a);
    }
    return false;
 }
 
 bool BinarySearchTree:: searchWord(string a){
-    return searchWord(root,a);
+    return search(root,a);
 }
 
 bool BinarySearchTree::deleteWord(string a) {
-   if(!searchWord(root,a)){
+   if(!search(root,a)){
        return false;
    }
    else{

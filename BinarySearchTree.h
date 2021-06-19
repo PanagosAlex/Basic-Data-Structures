@@ -13,11 +13,8 @@ class BinarySearchTree{
     Node* root;
     Node* found;
     void insert(Node* , string);
-    bool searchWord(Node *,string);
+    bool search(Node *,string);
     bool increaseDecrease(Node *,string,bool);
-
-    //string* data;
-    // int numofdata; //or maybe height of tree?
   public:
     BinarySearchTree(string);
     void setRoot(Node*);

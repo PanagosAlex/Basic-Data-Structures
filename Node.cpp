@@ -54,7 +54,7 @@ void Node::increase()
   data.setNumOfTimes(data.getNumOfTimes()+1);
   //setTimes(getTimes()+1);
   return;
-}
+} 
 
 void Node::decrease()
 {

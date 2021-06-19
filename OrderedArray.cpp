@@ -5,6 +5,10 @@
 OrderedArray::OrderedArray(Data *a, int len): UnorderedArray(a,len){
 }
 
+OrderedArray::OrderedArray(int len): UnorderedArray(len){
+
+}
+
 bool OrderedArray:: findWord(string word, int &pos){
         int l=0;
         int r=length-1;

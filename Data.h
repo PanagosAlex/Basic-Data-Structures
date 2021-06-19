@@ -10,7 +10,7 @@ private:
     int numOfTimes;
 public:
     Data();
-    Data(string w);
+    Data(string w); 
 
     void setWord(string w);
     void setNumOfTimes(int n);
