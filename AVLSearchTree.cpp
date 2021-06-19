@@ -47,7 +47,7 @@ void AVLSearchTree:: deleteWord(string a){
   calculateHeight(root);
 }
 /*
-* επιτελεί μια απλή δεξιά στροφή
+* επιτελεί μια απλή δεξιά περιστροφή
 */
 void AVLSearchTree:: simpleRightRotation(Node* x){
   Node* tempparent,* tempy,* tempB;
@@ -66,7 +66,7 @@ void AVLSearchTree:: simpleRightRotation(Node* x){
     tempy->setParent(NULL);
 }
 /*
-* επιτελεί μια απλή αριστερή στροφή
+* επιτελεί μια απλή αριστερή περιστροφή
 */
 void AVLSearchTree:: simpleLeftRotation(Node* x){
   Node* tempparent,* tempy,* tempB;
@@ -85,7 +85,7 @@ void AVLSearchTree:: simpleLeftRotation(Node* x){
     tempy->setParent(NULL);
 }
 /*
-* επιτελεί μια πολύπλοκη δεξιά στροφή
+* επιτελεί μια πολύπλοκη δεξιά περιστροφή
 */
 void AVLSearchTree:: complexRightRotation(Node* x){
   Node* tempparent,* tempy,* tempx,* tempB1,* tempB2,* tempz;
@@ -111,7 +111,7 @@ void AVLSearchTree:: complexRightRotation(Node* x){
     tempz->setParent(NULL);
 }
 /*
-* επιτελεί μια πολύπλοκη αριστερή στροφή
+* επιτελεί μια πολύπλοκη αριστερή περιστροφή
 */
 void AVLSearchTree:: complexLeftRotation(Node* x){
   Node* tempparent,* tempy,* tempx,* tempB1,* tempB2,* tempz;
