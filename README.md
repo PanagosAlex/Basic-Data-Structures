@@ -1,8 +1,6 @@
 # Basic-Data-Structures
 ## Implementation of Basic Data Structures in C++.
 
-A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data.
-
 ### The project consists of 5 tasks:
 
 **TASK 1**: An Unordered Array with some functions for it.
